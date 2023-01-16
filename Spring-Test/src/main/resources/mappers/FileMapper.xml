@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.myProject.repository.FileDAO">
+<insert id="insertFile" parameterType="com.ezen.myProject.domain.FileVO">
+	insert into file(uuid, save_dir, file_name,file_type,bno, file_size)
+	values(#{uuid},#{save_dir},#{file_name},#{file_type},#{bno},#{file_size})
+</insert>
+<select id="selectFileList" parameterType="int" resultType="com.ezen.myProject.domain.FileVO">
+	select * from file where bno =#{bno}
+</select>
+<delete id="deleteFile" parameterType="String">
+	delete from file where uuid=#{uuid}
+</delete>
+
+</mapper>
